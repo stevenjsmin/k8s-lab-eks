@@ -1,0 +1,23 @@
+eksctl create cluster \
+    --name k8s-demo \
+    --region v \
+    --with-oidc \
+    --ssh-access \
+    --region ap-southeast-2 \ 
+    --ssh-public-key stevenKey \
+    --nodes 3 \
+    --node-type t2.small \
+    --node-volume-size=20 \
+    --managed
+
+eksctl create cluster \
+    --name k8s-demo \
+    --region ap-southeast-2 \
+    --with-oidc \
+    --ssh-access \
+    --nodes 3 \
+    --node-type t2.micro \
+    --node-volume-size=20 \
+    --managed
+
+eksctl delete cluster --name k8s-demo
